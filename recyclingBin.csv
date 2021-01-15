@@ -1,0 +1,5 @@
+status,floor,dept,officesize,bin
+faculty,four,cse,medium,yes
+faculty,four,eee,medium,yes
+student,four,cse,small,no
+faculty,five,cse,medium,yes
