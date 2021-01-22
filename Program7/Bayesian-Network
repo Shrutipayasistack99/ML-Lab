@@ -5,7 +5,7 @@ from pgmpy.estimators import MaximumLikelihoodEstimator
 from pgmpy.models import BayesianModel
 from pgmpy.inference import VariableElimination
 #Read the attributes
-lines = list(csv.reader(open('P7_data7_names.csv', 'r')));
+lines = list(csv.reader(open('P7_data7_heart.csv', 'r')));
 attributes = lines[0]
 #attributes = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang',
 # 'oldpeak', 'slope', 'ca', 'thal', 'heartdisease']
