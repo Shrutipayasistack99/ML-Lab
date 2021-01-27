@@ -1,0 +1,29 @@
+import pandas as pd
+from sklearn.naive_bayes import GaussianNB
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+
+df = pd.read_csv("P5_naivedata.csv")
+
+print(df.head())
+
+features = list(df.columns)[:-1]
+predicted = list(df.columns)[-1]
+
+X = df[features].values
+Y = df[predicted].values
+
+xtrain,xtest,ytrain,ytest = train_test_split(X,Y,test_size=0.25)
+
+print("Training examples: ",xtrain.shape[0])
+print("Testing examples: ",xtest.shape[0])
+
+clf = GaussianNB().fit(xtrain,ytrain.ravel())
+p = clf.predict(xtest)
+
+print(p)
+
+print("Cofusion matrix: ","\n", metrics.confusion_matrix(ytest,p))
+print("Recall: ","\n", metrics.recall_score(ytest,p))
+print("Accuracy: ","\n", round(metrics.accuracy_score(ytest,p),4)*100,"%")
+print("Precision: ","\n",round( metrics.precision_score(ytest,p),4)*100,"%")
